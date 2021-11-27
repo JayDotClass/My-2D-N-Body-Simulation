@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Title</title>
+</head>
+<body>
+    <h1>My Magnum Opus!</h1>
+    <canvas id="canvas"></canvas>
+    <script type="module" src="Old2.js"></script>
+    <div id="menu1" class="menu1">
+        <h4>Left click to build a custom mass</h4>
+        <h4>Right click to make a random mass</h4>
+        <label><input type="checkbox" id="menu-toggle-trails" checked="checked"> Show trails</label><br>
+        <label><input type="checkbox" id="menu-toggle-vector-field"> Show vector field</label><br>
+        <label><input type="number" id="menu-vector-field-density-x" value="50" min="1"> Vector Density: X-Direction</label><br>
+        <label><input type="number" id="menu-vector-field-density-y" value="50" min="1"> Vector Density: Y-Direction</label><br>
+        <label><input type="number" id="menu-gravitational-constant" step="0.1" value="0.5"> Gravitational Constant</label><br>
+        <label><input type="number" id="menu-world-elasticity" step="0.1" value="1" min="0"> World Elasticity</label><br>
+        <label><input type="number" id="menu-trail-length" value="50" min="1"> Trail Length</label><br>
+        <!-- <button id="menu-random-spacetime">reset spacetime</button><br>
+        <button id="menu-preset-1">Generate Preset 1</button> -->
+    </div>
+    <div id="menu2" class="menu2">
+        <button id="menu-reset-spacetime">reset spacetime</button><br> <br>
+        <h4>Presets:</h4>
+        <button id="menu-preset-blank">Blank</button> <br>
+        <button id="menu-preset-random">Random</button> <br>
+        <button id="menu-preset-binary">Binary System</button> <br>
+        <button id="menu-preset-five">Five Body System</button> <br>
+    </div>
+    <div id="menu3" class="menu3">
+        <button id="radio-menu-reset">reset spacetime</button><br> <br>
+        <h4>Presets:</h4>
+        <input type="radio" id="radio-preset-blank" name="presets" value="A"/>
+        <label for="radio-preset-blank">blank</label> <br>
+        <input type="radio" id="radio-preset-random" name="presets" value="B" checked/>
+        <label for="radio-preset-random">random</label>
+        <input type="radio" id="radio-preset-binary" name="presets" value="C"/>
+        <label for="radio-preset-binary">binary</label> <br>
+        <input type="radio" id="radio-preset-five" name="presets" value="D"/>
+        <label for="radio-preset-five">five</label> <br>
+    </div>
+</body>
+</html>
