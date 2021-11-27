@@ -1,0 +1,52 @@
+#canvas{
+    position: absolute;
+    background: #1C1C26;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.menu1{
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 0.5em;
+    border-bottom-right-radius: 5px;
+    color: #E6E1C5;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
+}
+
+.menu2{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: 0.5em;
+    border-bottom-right-radius: 5px;
+    color: #E6E1C5;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
+}
+
+.menu3{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 0.5em;
+    border-bottom-right-radius: 5px;
+    color: #E6E1C5;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
+}
+
+h4{
+    margin: 0;
+}
+
+input[type="number"] {
+    width: 3em;
+}
