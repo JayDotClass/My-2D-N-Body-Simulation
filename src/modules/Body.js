@@ -26,7 +26,6 @@ class Body{
         this.radius = this.mass/10;
         this.position = new Vector(Math.random() * canvas.width, Math.random() * canvas.height);
         this.velocity = new Vector(generateValue(20) - 10,generateValue(20) - 10).scaledBy(0.1);
-        this.previousVelocity = this.velocity;
         this.acceleration = new Vector(0,0);
         this.elasticity = worldElasticity;
         this.history = [];

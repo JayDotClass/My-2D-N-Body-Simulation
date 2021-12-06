@@ -1,35 +1,17 @@
 import {Vector} from "./Vector.js";
-export {Body, bodyArray};
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const generateValue = (limit) =>  Math.floor(Math.random()*limit);
-const colourArray = ['#8D80AD', '#99B2DD', '#64F58D', '#BC2732', '#C9A17E', '#56876D', '#247BA0' ];
-
-
-let worldElasticity = document.getElementById('menu-world-elasticity').value;
-
-document.getElementById('menu-world-elasticity').addEventListener('change', function (){
-    worldElasticity = document.getElementById('menu-world-elasticity').value;
-});
-
 
 const bodyArray = [];
 
-class Body{
+class TestBody extends Body{
     constructor() {
-        this.colour = colourArray[generateValue(7)];
-        this.mass = generateValue(100) + 50;
-        this.radius = this.mass/10;
-        this.position = new Vector(Math.random() * canvas.width, Math.random() * canvas.height);
-        this.velocity = new Vector(generateValue(20) - 10,generateValue(20) - 10).scaledBy(0.1);
-        this.acceleration = new Vector(0,0);
-        this.elasticity = worldElasticity;
-        this.history = [];
-        bodyArray.push(this);
+        super();
+        this.colour = '#FFF';
     }
 
     drawBody() {
@@ -37,16 +19,6 @@ class Body{
         ctx.arc(this.position.xComp, this.position.yComp, this.radius, 0, 2 * Math.PI);
         ctx.fillStyle = this.colour;
         ctx.fill();
-    }
-
-
-    static penetrationResolution(body1, body2) {
-        const penetrationVector = body1.position.displacementVectorFrom(body2.position);
-        const penetrationDepth = (body1.radius + body2.radius) - penetrationVector.length();
-        // body1.acceleration = body1.acceleration.scaledBy(0);
-        // body2.acceleration = body2.acceleration.scaledBy(0);
-        body1.position = body1.position.additionFrom(penetrationVector.normalised().scaledBy(penetrationDepth / 2))
-        body2.position = body2.position.additionFrom(penetrationVector.normalised().scaledBy(-penetrationDepth / 2))
     }
 
     static elasticResolution(body1, body2) {
