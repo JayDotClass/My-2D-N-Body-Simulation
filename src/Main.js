@@ -1,8 +1,8 @@
 import { Vector } from './modules/Vector.js'
 import { Body, bodyArray } from './modules/Body.js'
 import { bodyBuilder } from './modules/BodyBuilder.js'
-import {do_physics, renderCentreOFMass, resetPlayBack, testMass} from './modules/Physics.js'
-import {renderForceLinks, renderVectorField} from './modules/VectorField.js'
+import {do_physics, renderCentreOFMass, resetPlayBack} from './modules/Physics.js'
+import {renderForceLinks, renderTestMass, renderVectorField} from './modules/VectorField.js'
 
 console.log("Let's a go!");
 
@@ -90,6 +90,7 @@ window.addEventListener('keydown', function (e) {
 
 
 const render = () => {
+    console.log(ctx.lineWidth);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // ctx.fillStyle = 'rgba(0,0,0,0.5)';
     // ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -108,7 +109,7 @@ const render = () => {
     }
 
     if (testMassOn) {
-        testMass();
+        renderTestMass();
     }
 
     bodyArray.forEach((body) => {
