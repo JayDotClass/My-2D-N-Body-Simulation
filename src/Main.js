@@ -1,7 +1,7 @@
 import { Vector } from './modules/Vector.js'
 import { Body, bodyArray } from './modules/Body.js'
 import { bodyBuilder } from './modules/BodyBuilder.js'
-import {do_physics, renderCentreOFMass, resetPlayBack} from './modules/Physics.js'
+import {do_physics, renderCentreOFMass, resetPlayBack, testMass} from './modules/Physics.js'
 import {renderForceLinks, renderVectorField} from './modules/VectorField.js'
 
 console.log("Let's a go!");
@@ -14,6 +14,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let presetChosen = -1;
+let testMassOn = false;
 
 window.addEventListener('resize', function (){
     canvas.width = window.innerWidth;
@@ -21,10 +22,18 @@ window.addEventListener('resize', function (){
 })
 
 window.addEventListener("contextmenu", function (e) {
+    /*
     let mouse = new Vector(e.x, e.y);
 
     const mouseBody = new Body();
     mouseBody.position = mouse;
+    */
+
+    if (testMassOn) {
+        testMassOn = false;
+    } else {
+        testMassOn = true;
+    }
 });
 
 let showTrails = document.getElementById('menu-toggle-trails').checked;
@@ -96,6 +105,10 @@ const render = () => {
 
     if (showForceLinks) {
         renderForceLinks();
+    }
+
+    if (testMassOn) {
+        testMass();
     }
 
     bodyArray.forEach((body) => {
