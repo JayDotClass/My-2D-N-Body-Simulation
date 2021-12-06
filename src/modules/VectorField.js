@@ -31,7 +31,6 @@ document.getElementById('menu-test-vector-thickness').addEventListener('change',
 
 canvas.addEventListener('mousemove', function (e) {
     mouse = new Vector(e.x, e.y);
-    console.log(mouse);
 })
 
 export const gravitationalIndicator = (initialXY, fieldOn) => {

@@ -90,7 +90,6 @@ window.addEventListener('keydown', function (e) {
 
 
 const render = () => {
-    console.log(ctx.lineWidth);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // ctx.fillStyle = 'rgba(0,0,0,0.5)';
     // ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -112,6 +111,11 @@ const render = () => {
         renderTestMass();
     }
 
+    if (bodyArray.length > 0) {
+        bodyArray[0].highlight();
+        bodyArray[0].updateInformationBox();
+    }
+
     bodyArray.forEach((body) => {
         body.updateHistory(trailLength);
         if (showTrails) {
@@ -124,6 +128,9 @@ const render = () => {
         // body.displayProperties();
     })
     renderCentreOFMass();
+
+
+
     /*
     let totalMass = 0;
     bodyArray.forEach((body) => {

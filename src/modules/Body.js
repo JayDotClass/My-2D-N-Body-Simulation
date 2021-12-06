@@ -114,6 +114,27 @@ class Body{
 
     }
 
+    highlight() {
+        ctx.beginPath();
+        ctx.strokeStyle = '#FFF';
+        ctx.fillStyle = '#FFF';
+        ctx.lineWidth = 3;
+        ctx.arc(this.position.xComp, this.position.yComp, this.radius + 5, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.lineWidth = 1;
+    }
+
+    updateInformationBox(){
+        const round2 = (num) => Math.round(num * 100) / 100;
+        const round5 = (num) => Math.round(num * 100000) / 100000;
+        document.getElementById("bodyNumber").innerHTML = `Body Number: ${bodyArray.indexOf(this)}`;
+        document.getElementById("bodyMass").innerHTML = `Body Mass: ${round2(this.mass)}`;
+        document.getElementById("bodySpeed").innerHTML = `Body Speed: ${round2(this.velocity.length())}`;
+        document.getElementById("bodyPosition").innerHTML = `Body Position: (${round2(this.position.xComp)},${round2(this.position.yComp)})`;
+        document.getElementById("bodyVelocity").innerHTML = `Body Velocity: (${round2(this.velocity.xComp)},${round2(this.velocity.yComp)})`;
+        document.getElementById("bodyAcceleration").innerHTML = `Body Acceleration: (${round5(this.acceleration.xComp)},${round5(this.acceleration.yComp)})`;
+    }
+
     clearHistory() {
         this.history = [];
     }

@@ -66,7 +66,6 @@ function accelerate() {
 */
 
 export function playBackAdjustment() {
-    console.log("Adjusting...");
     newPlayBackSpeed = document.getElementById('menu-playback-speed').value;
     if (newPlayBackSpeed) {
         ratio = newPlayBackSpeed / playBackSpeed;
@@ -77,8 +76,6 @@ export function playBackAdjustment() {
         playBackSpeed = newPlayBackSpeed;
     }
     playBackSpeed = newPlayBackSpeed;
-    console.log(gravitationalConstant);
-    console.log(bodyArray[1].velocity.length());
 }
 
 export function renderCentreOFMass() {
@@ -98,7 +95,6 @@ export function renderCentreOFMass() {
 }
 
 function mergeResolution(body1, body2){
-    console.log(`mergeResolution has been called for ${bodyArray.indexOf(body1)} and ${bodyArray.indexOf(body2)}`);
     const mergeArray = [];
     const indexArray = [];
     mergeArray.push(body1);
@@ -109,11 +105,9 @@ function mergeResolution(body1, body2){
     mergeBody.position = body1.position.scaledBy(body1.mass).additionFrom(body2.position.scaledBy(body2.mass)).scaledBy(1/mergeBody.mass);
     mergeBody.velocity = body1.velocity.scaledBy(body1.mass).additionFrom(body2.velocity.scaledBy(body2.mass)).scaledBy(1/mergeBody.mass);
     mergeArray.push(mergeBody);
-    console.log(mergeArray);
     mergeArray.forEach((body) => {
         indexArray.push(bodyArray.indexOf(body));
     })
-    console.log(indexArray);
     bodyArray.splice(bodyArray.indexOf(body1),1);
     body1.present = false;
     bodyArray.splice(bodyArray.indexOf(body2),1);
@@ -121,7 +115,6 @@ function mergeResolution(body1, body2){
     mergeArray.forEach((body) => {
         indexArray.push(bodyArray.indexOf(body));
     })
-    console.log(indexArray);
 }
 
 export function do_physics(dt) {
