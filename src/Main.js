@@ -114,6 +114,7 @@ const render = () => {
     if (bodyArray.length > 0) {
         bodyArray[0].highlight();
         bodyArray[0].updateInformationBox();
+        bodyArray[0].updateClosUp();
     }
 
     bodyArray.forEach((body) => {

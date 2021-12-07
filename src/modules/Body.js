@@ -11,11 +11,15 @@ const colourArray = ['#8D80AD', '#99B2DD', '#64F58D', '#BC2732', '#C9A17E', '#56
 
 
 let worldElasticity = document.getElementById('menu-world-elasticity').value;
+let closeUpRadius = document.getElementById('menu-closeup-size').value;
 
 document.getElementById('menu-world-elasticity').addEventListener('change', function (){
     worldElasticity = document.getElementById('menu-world-elasticity').value;
 });
 
+document.getElementById('menu-closeup-size').addEventListener('change', function (){
+    closeUpRadius = document.getElementById('menu-closeup-size').value;
+});
 
 const bodyArray = [];
 
@@ -72,16 +76,6 @@ class Body{
         const action4 = body.radius >= canvas.height - body.position.yComp ? body.velocity.yComp = -Math.abs(body.velocity.yComp) : 'unknown';
     }
 
-    displayProperties() {
-        ctx.fillStyle = "black";
-        ctx.fillText(`m: ${this.mass}`, this.position.xComp - 15, this.position.yComp);
-    }
-
-    displayKinematics() {
-        this.acceleration.drawVector(this.position.xComp,this.position.yComp,this.radius*100, "black");
-        this.velocity.drawVector(this.position.xComp,this.position.yComp,this.radius * 10, "blue");
-    }
-
     updateHistory(limit){
         this.history.push(this.position);
         if (this.history.length > limit && limit !== 0) {
@@ -133,6 +127,17 @@ class Body{
         document.getElementById("bodyPosition").innerHTML = `Body Position: (${round2(this.position.xComp)},${round2(this.position.yComp)})`;
         document.getElementById("bodyVelocity").innerHTML = `Body Velocity: (${round2(this.velocity.xComp)},${round2(this.velocity.yComp)})`;
         document.getElementById("bodyAcceleration").innerHTML = `Body Acceleration: (${round5(this.acceleration.xComp)},${round5(this.acceleration.yComp)})`;
+    }
+
+    updateClosUp(){
+        let closeUpWidth = canvas.width - closeUpRadius * 2 ;
+        let closeUpHeight = canvas.height - closeUpRadius * 2;
+        ctx.beginPath();
+        ctx.arc(closeUpWidth, closeUpHeight, closeUpRadius, 0, 2 * Math.PI);
+        ctx.fillStyle = this.colour;
+        ctx.fill();
+        this.acceleration.drawVector(closeUpWidth, closeUpHeight,closeUpRadius * 100, '#F00');
+        this.velocity.drawVector(closeUpWidth, closeUpHeight,closeUpRadius * 1.1, "#FFF");
     }
 
     clearHistory() {
