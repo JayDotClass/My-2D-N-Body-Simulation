@@ -1,7 +1,7 @@
 import { Vector } from './modules/Vector.js'
 import { Body, bodyArray } from './modules/Body.js'
 import { bodyBuilder } from './modules/BodyBuilder.js'
-import {renderForceLinks, renderTestMass, renderVectorField} from './modules/VectorField.js'
+import { renderForceLinks, renderTestMass, renderVectorField } from './modules/VectorField.js'
 import {do_physics, renderCentreOFMass, resetPlayBack} from './modules/Physics.js'
 
 console.log("Let's a go!");
