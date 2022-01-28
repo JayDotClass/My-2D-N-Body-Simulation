@@ -1,5 +1,5 @@
 import {Vector} from "./Vector.js";
-import {Body, bodyArray} from "./Body.js";
+import {Body} from "./Body.js";
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');

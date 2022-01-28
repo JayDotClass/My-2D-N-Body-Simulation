@@ -80,6 +80,8 @@ export const renderVectorField = () => {
     }
 }
 
+
+/*
 const gravitationalForce = (position, body) => {
     const gravitationalDistance = current.displacementFrom(body.position);
     const displacementX = current.xComp - body.position.xComp;
@@ -90,6 +92,7 @@ const gravitationalForce = (position, body) => {
     const gravitationalMagnitude = gravitationalForce.length();
     const gravitationalLimit = gravitationalForce.normalised().scaledBy(gravitationalMagnitude);
 }
+*/
 
 export const renderForceLinks = () => {
     for (let i = 0; i < bodyArray.length; i++) {

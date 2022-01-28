@@ -44,9 +44,6 @@ document.getElementById('menu-playback-speed').addEventListener('change', functi
     playBackAdjustment();
 });
 
-document.getElementById('menu-')
-
-
 export const borderQuery = (body) => body.radius >= body.position.xComp
     || body.radius >= body.position.yComp
     || body.radius >= canvas.width - body.position.xComp
@@ -185,12 +182,14 @@ export function renderGravityField(current) {
     return sumGravitationalForce;
 }
 
+/*
 export function testMass() {
     let mouse = new Vector(e.x, e.y);
 
     const mouseBody = new Body();
     mouseBody.position = mouse;
 }
+*/
 
 /*
 window.addEventListener('keydown', function (e) {
