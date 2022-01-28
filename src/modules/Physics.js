@@ -2,6 +2,7 @@ import {Vector} from "./Vector.js";
 import {Body, bodyArray} from "./Body.js";
 export {gravitationalConstant, newPlayBackSpeed, playBackSpeed};
 
+
 let gravitationalConstant = document.getElementById('menu-gravitational-constant').value;
 let previousGravitationalConstant = gravitationalConstant;
 let mergeOnCollision = document.getElementById('menu-toggle-merge').checked;
